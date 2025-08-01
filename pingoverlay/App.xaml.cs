@@ -9,6 +9,19 @@ namespace pingoverlay
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            POViewmodel Pv = new POViewmodel();
+
+            MainWindow mw = new MainWindow(Pv);
+            Compact compact = new Compact(Pv);
+
+            this.MainWindow = mw;
+
+            mw.Show();
+            compact.Show();
+        }
     }
 
 }
